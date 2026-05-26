@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "nombre":"Yaguer",
+        "email":"yaguersito@gmail.com",
+        "puesto":"Diseñador UX/UI",
+        "foto":""
+    },
+    {
+        "id":2,
+        "nombre":"Bizcocho",
+        "email":"biscochon@gmail.com",
+        "puesto":"Analista en Ciberseguridad",
+        "foto":""
+    },
+    {
+        "id":3,
+        "nombre":"Lola",
+        "email":"lolita@gmail.com",
+        "puesto":"CEO",
+        "foto":"/img/lola.jpeg"
+    },
+    {
+        "id":4,
+        "nombre":"Boomer",
+        "email":"boomersito@gmail.com",
+        "puesto":"Product Owner",
+        "foto":"/img/boomer.jpeg"
+    }
+]

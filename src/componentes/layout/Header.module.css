@@ -1,0 +1,11 @@
+.header{
+background-color:#e28dca;
+padding:10px;
+text-Align:center;
+color:"white";
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+}
