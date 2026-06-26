@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../Context/CartContext';
 export function Item({ id, nombre, precio, stock, imagen }) {
-    const producto = {id, nombre, precio, stock, imagen};
+    const producto = { id, nombre, precio, stock, imagen };
     const [cantidad, setCantidad] = useState(0);
     const incrementar = () => {
         if (cantidad < stock) {
@@ -17,17 +17,18 @@ export function Item({ id, nombre, precio, stock, imagen }) {
     const agregarAlCarrito = () => {
         alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito.`);
     }
-    const [esFavorito,setEsFavorito]= useState(Boolean);
-        const marcarComoFavorito= ()=>{
-            //setEsFavorito(!esFavorito);
-            if(esFavorito===true){
-                setEsFavorito(false);
-            }
-            else{
-                setEsFavorito(true);
-            }
+    const [esFavorito, setEsFavorito] = useState(Boolean);
+    const marcarComoFavorito = () => {
+        //setEsFavorito(!esFavorito);
+        if (esFavorito === true) {
+            setEsFavorito(false);
         }
-    const {addToCart} = useCart();
+        else {
+            setEsFavorito(true);
+        }
+    }
+    const { addToCart, getCantidadActual } = useCart();
+    const cantidadActual = getCantidadActual(producto.id);
     const handleAddToCart = () => {
         addToCart(producto, cantidad);
         alert(`Agregaste ${cantidad} unidades de ${nombre} al carrito`);
@@ -44,16 +45,16 @@ export function Item({ id, nombre, precio, stock, imagen }) {
                 display: 'flex', alignItems: 'center', justifyContent:
                     'center', margin: '10px 0'
             }}>
-                
+
                 <Link key={producto.id} to={`/productos/${producto.id}`}>Ver detalle</Link>
                 <button onClick={decrementar}>-</button>
-                <p style={{ margin: '0 10px' }}>{cantidad}</p>
+                <p style={{ margin: '0 10px' }}>{cantidadActual}</p>
                 <button onClick={incrementar}>+</button>
             </div>
             <button onClick={agregarAlCarrito}>Agregar al Carrito</button>
             <span onClick={marcarComoFavorito}
-                style={{fontSize:"24px"}}>
-                    {esFavorito? "⭐":"☆"}
+                style={{ fontSize: "24px" }}>
+                {esFavorito ? "⭐" : "☆"}
             </span>
             <button onClick={handleAddToCart}>Agregar {cantidad} al carrito</button>
         </div>

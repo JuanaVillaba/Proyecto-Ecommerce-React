@@ -7,6 +7,7 @@ const Cart = () => {
             <div>
                 <h1>El carrito esta vacio</h1>
                 <p>Agregar productos para continuar la compra</p>
+                <Link to="/productos" className="btn-volver">Ver productos</Link>
             </div>
         );
     }
@@ -18,11 +19,13 @@ const Cart = () => {
                     <h4>{item.nombre}</h4>
                     <p>Cantidad: {item.quantity}</p>
                     <p>Precio unitario: ${item.precio}</p>
-                    <p>Subtotal: ${item.precio * item.quantity}</p>
+                    <p>Subtotal: ${item.precio * item.quantity}</p><br/>
                 </div>
             })}
             <h3>Total a pagar: ${getCartTotal()}</h3>
-            <button onClick={clearCart}>Vaciar carrito</button>
+            <button onClick={clearCart} className="btn-vaciar">Vaciar carrito</button>
+            <Link to="/" onClick={()=>alert("Gracias por comprar")}
+            className="btn-finalizar">Finalizar compra</Link>
         </div>
     )
 }
