@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "../Context/CartContext";
+import { Link } from "react-router-dom";
 const Cart = () => {
     const {cart, clearCart, getCartTotal} = useCart ();
     if(cart.length === 0){
@@ -7,21 +8,21 @@ const Cart = () => {
             <div>
                 <h1>El carrito esta vacio</h1>
                 <p>Agregar productos para continuar la compra</p>
-                <Link to="/productos" className="btn-volver">Ver productos</Link>
+                <Link to="/Productos" className="btn-volver">Ver productos</Link>
             </div>
         );
     }
     return(
         <div>
             <h1>Carrito de compras</h1>
-            {cart.map(item => {
+            {cart.map(item => (
                 <div key={item.id} className="cart-item">
                     <h4>{item.nombre}</h4>
                     <p>Cantidad: {item.quantity}</p>
                     <p>Precio unitario: ${item.precio}</p>
                     <p>Subtotal: ${item.precio * item.quantity}</p><br/>
                 </div>
-            })}
+            ))}
             <h3>Total a pagar: ${getCartTotal()}</h3>
             <button onClick={clearCart} className="btn-vaciar">Vaciar carrito</button>
             <Link to="/" onClick={()=>alert("Gracias por comprar")}

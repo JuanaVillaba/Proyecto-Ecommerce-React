@@ -1,0 +1,10 @@
+.card{
+ width: 30%;
+ height: 50%;
+ background-color: lightpink;
+ margin-left: 20px;
+}
+.direccion {
+    display: flex;
+ flex-direction: row;
+}

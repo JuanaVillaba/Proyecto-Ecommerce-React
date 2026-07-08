@@ -13,37 +13,14 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import ProductoDetalle from "./componentes/Productos/ProductoDetalle";
 import Inicio from "./componentes/Inicio/Inicio";
 import Cart from "./componentes/Cart/Cart";
+import ProductosNacionales from "./componentes/ProductosNacionales/productosNacionales"
+import ProductosNacionalesDetalle from "./componentes/ProductosNacionalesDetalle/ProductosNacionalesDetalle"
+import { Gestion } from "./componentes/Gestion/Gestion";
 
 function App() {
-  const usuario = {
-    nombre: "Luis",
-    profesion: "Diseñador UX/UI",
-  };
-  const asistentes = [
-    { nombre: "Juanito", tarea: "Amar", emoji: "❤️" },
-    { nombre: 'Juan Pérez', tarea: 'Frontend Developer', emoji: '‍' },
-    { nombre: 'Ana Gómez', tarea: 'Diseñadora UX/UI', emoji: '🎨' },
-    { nombre: 'Carlos Ruiz', tarea: 'Backend Developer', emoji: '‍' }
-  ];
-  
+
   return (
-    //<div>
-    //  {/* 2. Lo usamos como si fuera una etiqueta HTML */}
-    //  <Bienvenida />
-    //  <p>Este es mi primer componente montado en App.jsx</p>
-    //  <TarjetaUsuario {...usuario} />
-    //  <Contenedor>
-    //    <h1>Titulo Contenedor</h1>
-    //    <p>Parrafo contenedor</p>
-    //  </Contenedor>
-    //  {asistentes.map((asistente, index)=>(
-    //    <Asistente key={index} {...asistente}/>
-    //  ))}
-    //</div>
-    //<div>
-      //<h1 style={{ backgroundColor: "#b8e8e1",color: "lightpink" }}>
-      //  Mi aplicacion
-      //</h1>
+
       <Routes>
         <Route element={<Layout/>}>
           <Route path="/" element ={<Navigate to="/inicio" replace/>}/>
@@ -52,8 +29,10 @@ function App() {
           element={<ItemListContainer
           Mensaje={"Productos destacados"}/>}/>
           <Route path="/productos/:id" element={<ProductoDetalle/>}></Route>
+          <Route path="/Productos-nacionales/:id" element={<ProductosNacionalesDetalle/>}/>
           <Route path="/carrito" element={<Cart />}/>
           <Route path="/tarjeta" element={<TarjetaUsuario/>}/>  
+          <Route path="/gestion" element={<Gestion/>}/>
         </Route>
       </Routes>
   );
