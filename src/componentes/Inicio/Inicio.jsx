@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Inicio.module.css";
-import TarjetaProducto from "../TarjetaProducto/TarjetaProducto";
+
 import {ItemList} from "../ItemList/Itemlist";
 
 function Inicio() {
@@ -11,7 +11,7 @@ function Inicio() {
     return (
         <div className={styles.fondo}>
             <h1>Bienvenidos a la Página de Inicio</h1>
-            <p>Comienza a escribir tu nuevo código aquí...</p>
+
             <ItemList productos={productos} />
 
         </div>

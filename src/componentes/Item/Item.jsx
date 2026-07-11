@@ -40,23 +40,22 @@ export function Item({ id, nombre, precio, stock, imagen }) {
         }}>
             <h3>{producto.nombre}</h3>
             <p>Precio: ${producto.precio}</p>
-            <p>Stock disponible: {stock}</p>
+            <p>Stock disponible: {producto.stock}</p>
             <div style={{
                 display: 'flex', alignItems: 'center', justifyContent:
                     'center', margin: '10px 0'
             }}>
 
-                <Link key={producto.id} to={`/productos/${producto.id}`}>Ver detalle</Link>
+                <Link key={producto.id} to={`/productos-nacionales/${producto.id}`}>Ver detalle</Link>
                 <button onClick={decrementar}>-</button>
-                <p style={{ margin: '0 10px' }}>{cantidadActual}</p>
+                <p style={{ margin: '0 10px' }}>{cantidad}</p>
                 <button onClick={incrementar}>+</button>
             </div>
-            <button onClick={agregarAlCarrito}>Agregar al Carrito</button>
             <span onClick={marcarComoFavorito}
                 style={{ fontSize: "24px" }}>
                 {esFavorito ? "⭐" : "☆"}
             </span>
-            <button onClick={handleAddToCart}>Agregar {cantidad} al carrito</button>
+            <button onClick={handleAddToCart}>Agregar al carrito</button>
         </div>
     )
 }

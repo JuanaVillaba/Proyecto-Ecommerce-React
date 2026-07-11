@@ -3,7 +3,10 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { Link } from "react-router-dom";
 import { Route } from "react-router-dom";
+import ProductosNacionalesDetalle from "../ProductosNacionalesDetalle/ProductosNacionalesDetalle";
+import { useCart } from '../Context/CartContext';
 
+import { Item } from "../Item/Item";
 const ProductosNacionales = () => {
     const [productos, setProductos] = useState([]);
     useEffect(() => {
@@ -27,9 +30,8 @@ const ProductosNacionales = () => {
                         <p>Categoria: {prod.categoria}</p>
                         <p>Precio: ${prod.precio}</p>
                         <p>Stock: {prod.stock}</p><hr />
-                        <Link to={`/Productos-nacionales/${prod.id}`}>Ver detalle</Link>
-                        <Route path="/Productos-nacionales/:id"
-                        element={<ProductosNacionalesDetalle/>}></Route>
+                        <Link to={`/productos-nacionales/${prod.id}`}>Ver detalle</Link> <hr></hr>
+                        <Item  key={prod.id} {...prod} />
                     </div>
                 ))}
             </div>

@@ -9,7 +9,7 @@ import styles from "../ProductosNacionalesDetalle/ProductosNacionalesDetalle.mod
     const { id } = useParams();
     useEffect(() => {
         if (id) {
-            const docRef = doc(db, "Productos nacionales", id);
+            const docRef = doc(db, "productos nacionales", id);
             getDoc(docRef).then((resp) => {
                 if (resp.exists()) {
                     setItem({ ...resp.data(), id: resp.id });

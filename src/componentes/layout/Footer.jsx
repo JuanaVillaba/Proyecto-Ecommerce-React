@@ -22,19 +22,7 @@ function Footer() {
             backgroundColor: "#e28dca", padding: "10px",
             textAlign: "center", marginTop: "20px", color: "black"
         }}>
-            <div className={styles.direccion}>
-            <h3>Equipo</h3>
-            {equipo.map((trabajador) =>(
-                <div className={styles.card}>
-                    <div key={trabajador.id}>
-                        <img src={trabajador.fotoURL} alt={trabajador.nombre} />
-                        <p>{trabajador.nombre}</p>
-                        <p>{trabajador.rol}</p>
-                        <p>{trabajador.linkedinURL}</p>
-                    </div>
-                </div>
-            ))}
-            </div>
+            
             <p>&copy; 2026 - Mi Aplicación React</p>
         </footer>
     );
