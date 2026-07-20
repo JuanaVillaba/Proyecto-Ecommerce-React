@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col, Card, Button, Spinner } from 'react-bootstrap';
 import { collection, getDocs, query, where, documentId } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import {ItemList} from "../ItemList/Itemlist";
+import {ItemList} from "../ItemList/ItemList";
 import { Item } from "../Item/Item";
 
 function Inicio(){
