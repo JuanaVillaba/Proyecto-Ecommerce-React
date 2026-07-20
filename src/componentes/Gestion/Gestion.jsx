@@ -5,7 +5,7 @@ import { FormularioContenedor } from "../FormularioContenedor/FormularioContened
 import { data } from "react-router-dom";
 import FormularioProducto from "../FormularioProducto/FormularioProducto";
 import { preloadModule } from "react-dom";
-import { Button } from "bootstrap";
+
 
 import styled from "styled-components";
 import { FaEdit, FaTrash } from 'react-icons/fa';
