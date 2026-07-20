@@ -1,8 +1,7 @@
 import React from "react";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Contenedor from './Contenedor';
-import Asistente from './Asistente';
+
 import Layout from "./componentes/layout/Layout";
 import Footer from "./componentes/layout/Footer";
 import "./index.css"

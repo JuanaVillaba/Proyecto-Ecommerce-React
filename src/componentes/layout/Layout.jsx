@@ -2,9 +2,7 @@ import React from "react";
 import Header from './Header';
 import Footer from './Footer';
 
-import queso from "../../assets/queso.jpg";
-import salame from "../../assets/salame.jpg";
-import vino from "../../assets/vino.jpg";
+
 import { Outlet } from "react-router-dom";
 export function Layout({ children }) {
     
