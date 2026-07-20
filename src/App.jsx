@@ -12,7 +12,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import Inicio from "./componentes/Inicio/Inicio";
 import Cart from "./componentes/Cart/Cart";
-import ProductosNacionales from "./componentes/ProductosNacionales/productosNacionales"
+import ProductosNacionales from "./componentes/ProductosNacionales/ProductosNacionales"
 import ProductosNacionalesDetalle from "./componentes/ProductosNacionalesDetalle/ProductosNacionalesDetalle"
 import { Gestion } from "./componentes/Gestion/Gestion";
 import Registro from "./componentes/Registro/Registro";
