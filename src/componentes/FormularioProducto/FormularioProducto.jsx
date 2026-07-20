@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-function FormularioProducto({datosForm, manejarCambio, manejarEnvio, manejarCambioImagen}) {
+function FormularioProducto({datosForm, setDatosForm, manejarEnvio, setImagenFile, esEdicion}) {
     const formStyle = {
         display: 'flex',
         flexDirection: 'column',
@@ -12,30 +12,33 @@ function FormularioProducto({datosForm, manejarCambio, manejarEnvio, manejarCamb
     };
     return (
         <form style={formStyle} onSubmit={manejarEnvio}>
-            <h3>Agregar Nuevo Producto</h3>
+            <h3>{esEdicion? "Actualizar producto":"Agregar nuevo producto"}</h3>
             <div>
                 <label>Nombre del producto:</label>
                 <input type="text" placeholder="Ejemplo: Teclado Mecanico"
-                name="nombre" value={datosForm.nombre} onChange={manejarCambio}/>
+                name="nombre" value={datosForm.nombre}
+                onChange={(e)=> setDatosForm({...datosForm, nombre: e.target.value})}/>
             </div>
             <div>
                 <label>Precio:</label>
                 <input type="number" placeholder="Ejemplo: 15500"
-                name="precio" value={datosForm.precio} onChange={manejarCambio}/>
+                name="precio" value={datosForm.precio}
+                onChange={(e)=> setDatosForm({...datosForm, precio: Number(e.target.value)})}/>
             </div>
             <div>
                 <label>Stock:</label>
                 <input type="number" placeholder="Ejemplo: 100"
-                name="stock" value={datosForm.stock} onChange={manejarCambio}/>
+                name="stock" value={datosForm.stock}
+                onChange={(e)=> setDatosForm({...datosForm, stock: Number(e.target.value)})}/>
             </div>
             <div>
                 <label>Imagen:</label>
                 <input type="file" 
                     accept="image/*" 
                     name="imagen" 
-                    onChange={manejarCambioImagen} />
+                    onChange={(e)=> setImagenFile(e.target.files[0])}/>
             </div>
-            <button type="submit">Guardar producto</button>
+            <button type="submit">{esEdicion? "Guardar producto actualizado":"Guardar producto"}</button>
         </form>
     );
 }

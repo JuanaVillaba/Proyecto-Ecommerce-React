@@ -3,6 +3,8 @@ import { getFirestore, collection, getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { Link,Route, useParams } from "react-router-dom";
 import styles from "../ProductosNacionalesDetalle/ProductosNacionalesDetalle.module.css"
+import { Helmet } from 'react-helmet';
+import { Spinner } from "react-bootstrap";
 
  const ProductosNacionalesDetalle = () => {
     const [prod, setItem] = useState(null);
@@ -21,6 +23,13 @@ import styles from "../ProductosNacionalesDetalle/ProductosNacionalesDetalle.mod
         }
     }, [id]);
     return (
+        <>
+        {prod && (
+            <Helmet>
+                <title>Mi tienda | {prod.nombre}</title>
+                <meta name="description" content={`Detalles y precio del producto${prod.nombre}.`} />
+                </Helmet>
+        )}
         <div className={styles.CartaDetalle}>
             {prod ? (
                 <div>
@@ -31,9 +40,12 @@ import styles from "../ProductosNacionalesDetalle/ProductosNacionalesDetalle.mod
                     <p>{prod.descripcion}</p>
                 </div>
             ) : (
-                <p>Cargando detalles</p>
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Cargando detalles...</span>
+                </Spinner>
             )}
         </div>
+        </>
     )
 }
 export default ProductosNacionalesDetalle
